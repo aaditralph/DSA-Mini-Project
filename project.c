@@ -48,7 +48,7 @@ void autocomplete(TrieNode *root, char *prefix) {
     for (int i = 0; prefix[i] != '\0'; i++) {
         int idx = tolower(prefix[i]) - 'a';
         if (idx < 0 || idx >= 26 || curr->children[idx] == NULL) {
-            printf("⚠️  No suggestions found for \"%s\"\n", prefix);
+            printf("  No suggestions found for \"%s\"\n", prefix);
             return;
         }
         curr = curr->children[idx];
@@ -89,7 +89,7 @@ int main() {
                 printf("Enter new contact: ");
                 scanf("%s", input);
                 insert(root, input);
-                printf("✅ Contact \"%s\" added successfully!\n", input);
+                printf(" Contact \"%s\" added successfully!\n", input);
                 choice = 0;
                 break;
 
@@ -105,7 +105,7 @@ int main() {
                 break;
 
             default:
-                printf("  Invalid choice. Try again.\n");
+                printf(" Invalid choice. Try again.\n");
         }
     } while (choice != 3);
 
