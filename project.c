@@ -3,13 +3,11 @@
 #include <string.h>
 #include <ctype.h>
 
-// Trie Node definition
 typedef struct TrieNode {
     struct TrieNode *children[26];
     int isEndOfWord;
 } TrieNode;
 
-// Create new Trie node
 TrieNode* createNode() {
     TrieNode *node = (TrieNode*)malloc(sizeof(TrieNode));
     node->isEndOfWord = 0;
@@ -18,7 +16,6 @@ TrieNode* createNode() {
     return node;
 }
 
-// Insert a word into Trie
 void insert(TrieNode *root, char *word) {
     TrieNode *curr = root;
     for (int i = 0; word[i] != '\0'; i++) {
@@ -33,7 +30,6 @@ void insert(TrieNode *root, char *word) {
     curr->isEndOfWord = 1;
 }
 
-// Recursive function to print suggestions
 void suggestionsRec(TrieNode *curr, char *prefix) {
     if (curr->isEndOfWord)
         printf("   %s\n", prefix);
@@ -47,7 +43,6 @@ void suggestionsRec(TrieNode *curr, char *prefix) {
     }
 }
 
-// Search for prefix in Trie and suggest words
 void autocomplete(TrieNode *root, char *prefix) {
     TrieNode *curr = root;
     for (int i = 0; prefix[i] != '\0'; i++) {
@@ -59,12 +54,10 @@ void autocomplete(TrieNode *root, char *prefix) {
         curr = curr->children[idx];
     }
 
-    // If prefix exists, show suggestions
     printf("Suggestions for \"%s\":\n", prefix);
     suggestionsRec(curr, prefix);
 }
 
-// Free memory of Trie
 void freeTrie(TrieNode *root) {
     if (!root) return;
     for (int i = 0; i < 26; i++)
@@ -72,11 +65,9 @@ void freeTrie(TrieNode *root) {
     free(root);
 }
 
-// Menu-driven interface (TUI style)
 int main() {
     TrieNode *root = createNode();
 
-    // Preload some contacts
     char *contacts[] = {"ananya", "anand", "ankit", "rahul", "ramesh", "riya", "amit", "arjun"};
     int n = sizeof(contacts) / sizeof(contacts[0]);
     for (int i = 0; i < n; i++)
@@ -114,7 +105,7 @@ int main() {
                 break;
 
             default:
-                printf("⚠️  Invalid choice. Try again.\n");
+                printf("  Invalid choice. Try again.\n");
         }
     } while (choice != 3);
 
