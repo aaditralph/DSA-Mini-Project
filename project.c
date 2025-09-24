@@ -68,7 +68,7 @@ void freeTrie(TrieNode *root) {
 int main() {
     TrieNode *root = createNode();
 
-    char *contacts[] = {"ananya", "anand", "ankit", "rahul", "ramesh", "riya", "amit", "arjun"};
+    char *contacts[] = {"ananya", "anand", "ankit", "rahul", "ramesh", "riya", "amit", "arjun","anand"};
     int n = sizeof(contacts) / sizeof(contacts[0]);
     for (int i = 0; i < n; i++)
         insert(root, contacts[i]);
