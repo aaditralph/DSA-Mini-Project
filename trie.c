@@ -109,7 +109,7 @@ void freeTrie(TrieNode *root)
     free(root);
 }
 
-// --- JSON Persistence Functions ---
+//  JSON Persistence Functions
 
 void saveContactsUtil(TrieNode *root, char *word, int level, cJSON *json_array)
 {
