@@ -19,9 +19,8 @@ int main()
 
         if (scanf("%d", &choice) != 1)
         {
-            choice = 0; // Invalid input, reset choice
+            choice = 0;
         }
-        // **FIX**: Clear the input buffer to prevent issues with scanf.
         while (getchar() != '\n')
             ;
 

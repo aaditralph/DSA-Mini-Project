@@ -2,7 +2,7 @@
 
 typedef struct TrieNode
 {
-    struct TrieNode *children[27];
+    struct TrieNode *children[26];
     int isEndOfWord;
     char *contactNumber;
 } TrieNode;
